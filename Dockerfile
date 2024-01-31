@@ -1,17 +1,17 @@
-# 使用 Ubuntu 22.04 作为基础镜像
+# 浣跨敤 Ubuntu 22.04 浣滀负鍩虹闀滃儚
 FROM ubuntu:22.04
 
-# 安装 Shellinabox
+# 瀹夎 Shellinabox
 RUN apt-get update && \
     apt-get install -y shellinabox && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# 设置 root 用户的密码为 'root'
-RUN echo 'root:frepai' | chpasswd
+# 璁剧疆 root 鐢ㄦ埛鐨勫瘑鐮佷负 'root'
+RUN echo 'root:ncaa100' | chpasswd
 
-# 暴露 22 端口
+# 鏆撮湶 22 绔彛
 EXPOSE 22
 
-# 启动 Shellinabox
+# 鍚姩 Shellinabox
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
